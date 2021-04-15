@@ -1,7 +1,6 @@
 # Blocker Fraud Company
-> in development 
 
-> #First development cycle completed
+> First development cycle completed
 
 [![N|Solid](https://dsacpainc.com/wp-content/uploads/2020/11/Logo-of-Fraud-clipart-1024x768-1160x665.jpg)](https://nodesource.com/products/nsolid)
 
@@ -32,7 +31,14 @@ Questions:
 
 ## 2.0 The solution
 
-Perform data analysis and create a machine learning model that maximizes the number of correct classifications
+Create a machine learning model that maximizes the number of correct classifications.
+
+- To increase earnings, it is necessary to obtain a large amount of values truly predicted as fraud
+- To reduce losses, it is necessary to obtain the minimum of (in order of relevance):
+    - False negative (transaction detected as legitimate, however the transaction is a fraud)
+    - False positive (transaction value detected as fraud, however the transaction is legitimate)
+
+In other words, we want a model that maximizes accuracy, recall and precision, in that order.
 
 ## 3.0 Solution Steps
 
@@ -54,7 +60,7 @@ Below are some points of the project.
 
 ### 3.1 Data description
 
-## Numerical
+#### Numerical
 
 ![alt text](img/data_description_numerical.png "Title")
 
@@ -68,7 +74,7 @@ Key points:
 
 ![alt text](img/data_description_boxplot_2.png "Title")
 
-## Categorical
+#### Categorical
 
 ![alt text](img/data_description_categorical.png "Title")
 
@@ -81,8 +87,25 @@ This map helped to decide wich one of the variables were necessary to validate t
 ![alt text](img/MindMapHypotesis.png "Title")
 
 
-### Hypotesis validation - bivariate analysis
+### 3.3 Hypotesis validation - bivariate analysis
 
+#### H2. Transfer transaction is more likely to be a fraud.
+
+![alt text](img/h2.png "Title")
+
+> *False.* Only transfer and cash-out transactions are fraudulent. cash-out has 4116 frauds, slightly higher than transfer (4097)
+
+#### H3. The higher the value of the transaction the greater the chance of being fraud.
+
+![alt text](img/h3_1.png "Title")
+
+![alt text](img/h3_2.png "Title")
+
+> *True**. The hypothesis is true, but only in amounts below 10,000,000. Above that amount there aren't cases of fraud
+
+#### H9. Transactions made outside normal hours are more likely to be fraud. (normal: 7h - 0h, not normal: 0h - 7h)
+
+![alt text](img/h9.png "Title")
 
 #### Hypothesis summary
 
@@ -99,6 +122,52 @@ This map helped to decide wich one of the variables were necessary to validate t
 | H9 | True | Low | Transactions made outside normal hours are more likely to be fraud. |
 | H10 | False | Low | Transactions made on the first 15 days of the month are more likely to be a fraud. |
 
+### 3.4 Multivariate Analysis
+
+![alt text](img/multivariate.png "Title")
+
+These correlations can be useful for the business team to have a quick view of the relationships of the business variables. Both numerical and categorical multivariate analysis can be used later in the project.
+
+![alt text](img/multivariate_2.png "Title")
+
+### 3.5 Machine Learning
+
+![alt text](img/ml.png "Title")
+
+The Random Forest had the best result. Doing the cross validation, for each model, we obtain:
+
+![alt text](img/ml_2.png "Title")
+
+Therefore, the model we will use will be the Random Forest
+
+### 3.6 Error Translation and Interpretation.
+
+#### Overall performance
+
+For every 1000 transactions made, according to Random Forest Cross Validation, the results are:
+
+- 999,997 +/- 0,00169 correct classifications (true positives + true negatives). &emsp; &emsp; -> accuracy
+
+- 99,9994% +/- 0,000337% of all frauds are detected. &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; -> Recall
+
+- 99,9999% of transactions classified as fraud, are really fraud. &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; -> Precision
+
+#### Performance in an example
+
+Using a sample of 1908786 costumers:
+
+![alt text](img/7.4.im.png "Title")
+
+1 - Blocker Fraud Company will receive $856,775,411.85 due to transactions truly detected as fraud
+
+2 - Blocker Fraud Company will lose $12,591.51 due to transactions detected as fraud, however the transaction is legitimate.
+
+3 - Blocker Fraud Company will lose $3,253,801.45 due to transactions detected as legitimate, however the transaction is a fraud
 
 
 ## 4 Next Steps
+
+- Use other machine learning models, such as Isolation Forest, an unsupervised model that is very good in the presence of outliers.
+- Treat outliers and use models that benefit from this.
+- Add more parameters in random search cross validation, or use GridSearch.
+
