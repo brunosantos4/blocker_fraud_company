@@ -107,6 +107,8 @@ This map helped to decide wich one of the variables were necessary to validate t
 
 ![alt text](img/h9.png "Title")
 
+> *True*.
+
 #### Hypothesis summary
 
 | Hypotesis | Conclusion | Relevance | |
