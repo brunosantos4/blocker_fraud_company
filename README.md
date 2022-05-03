@@ -24,7 +24,7 @@ However, the Blocker Fraud Company is expanding in Brazil and to acquire custome
 
 Questions:
 
-- What is the model's Precision and Accuracy?
+- What is the model's metrics?
 - How reliable is the model in classifying transactions as legitimate or fraudulent?
 - What is the expected billing by the company if we classify 100% of transactions with the model?
 
@@ -38,7 +38,7 @@ Create a machine learning model that maximizes the number of correct classificat
     - False negative (transaction detected as legitimate, however the transaction is a fraud)
     - False positive (transaction value detected as fraud, however the transaction is legitimate)
 
-In other words, we want a model that maximizes accuracy, recall and precision, in that order.
+The accuracy is not a good metric for this problem because the base is very unbalanced, naturally the accuracy of the model will be high as it has a lot of non-fraud cases. The best metric to evaluate the model is Recall, since it is desired to decrease the number of false negatives. It is much worse not to consider fraud and to be really a fraud.
 
 ## 3.0 Solution Steps
 
