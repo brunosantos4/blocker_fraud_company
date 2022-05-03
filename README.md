@@ -107,6 +107,8 @@ This map helped to decide wich one of the variables were necessary to validate t
 
 ![alt text](img/h9.png "Title")
 
+> *True*.
+
 #### Hypothesis summary
 
 | Hypotesis | Conclusion | Relevance | |
@@ -154,7 +156,7 @@ For every 1000 transactions made, according to Random Forest Cross Validation, t
 
 #### Performance in an example
 
-Using a sample of 1908786 costumers:
+Using a sample of 1908786 transactions:
 
 ![alt text](img/7.4.im.png "Title")
 
