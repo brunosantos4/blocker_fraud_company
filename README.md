@@ -24,7 +24,7 @@ However, the Blocker Fraud Company is expanding in Brazil and to acquire custome
 
 Questions:
 
-- What is the model's metrics?
+- What is the model's metrics? 
 - How reliable is the model in classifying transactions as legitimate or fraudulent?
 - What is the expected billing by the company if we classify 100% of transactions with the model?
 
