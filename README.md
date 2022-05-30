@@ -136,35 +136,30 @@ These correlations can be useful for the business team to have a quick view of t
 
 ![alt text](img/ml.png "Title")
 
-The Random Forest had the best result. Doing the cross validation, for each model, we obtain:
+The Light GBM had the best result. Doing the cross validation, for each model, we obtain:
 
 ![alt text](img/ml_2.png "Title")
 
-Therefore, the model we will use will be the Random Forest
+Therefore, the model we will use will be the Light GBM
 
 ### 3.6 Error Translation and Interpretation.
 
 #### Overall performance
 
-For every 1000 transactions made, according to Random Forest Cross Validation, the results are:
+The results are:
 
-- 999,997 +/- 0,00169 correct classifications (true positives + true negatives). &emsp; &emsp; -> accuracy
+- 99,9988% correct classifications (true positives + true negatives). &emsp;  -> Accuracy
 
-- 99,9994% +/- 0,000337% of all frauds are detected. &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; -> Recall
+- 99,6% of all frauds are detected. &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; -> Recall
 
-- 99,9999% of transactions classified as fraud, are really fraud. &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; -> Precision
+- 99,5% of transactions classified as fraud, are really fraud. &emsp; &emsp; &emsp; &emsp;-> Precision
 
-#### Performance in an example
+
+It was a very good result for the project. The data for production was removed at the beginning, so there was no leakage of information.
 
 Using a sample of 1908786 transactions:
 
-![alt text](img/7.4.im.png "Title")
-
-1 - Blocker Fraud Company will receive $856,775,411.85 due to transactions truly detected as fraud
-
-2 - Blocker Fraud Company will lose $12,591.51 due to transactions detected as fraud, however the transaction is legitimate.
-
-3 - Blocker Fraud Company will lose $3,253,801.45 due to transactions detected as legitimate, however the transaction is a fraud
+![alt text](img/10.2.png "Title")
 
 
 ## 4 Next Steps
